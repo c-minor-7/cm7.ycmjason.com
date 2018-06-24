@@ -1,7 +1,11 @@
 <template>
   <nav :class="{ toggled }">
     <ul>
-      <li v-for="(item, i) in items" :key="i">{{ item.label }}</li>
+      <nuxt-link
+        tag="li"
+        v-for="item in items"
+        :to="item.to"
+        :key="item.to">{{ item.label }}</nuxt-link>
     </ul>
   </nav>
 </template>
@@ -23,7 +27,12 @@ export default {
   data: () => ({
     items: [
       {
+        label: 'Home',
+        to: '/',
+      },
+      {
         label: 'Requests',
+        to: '/request',
       },
     ],
   }),
@@ -90,5 +99,10 @@ li {
   list-style: none;
   display: block;
   padding: 1rem 1rem;
+  cursor: pointer;
+
+  &.nuxt-link-exact-active {
+    color: $color-secondary;
+  }
 }
 </style>

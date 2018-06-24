@@ -2,7 +2,7 @@
   <header>
     <div class="container">
       <NavButton class="nav-button" @toggle-nav="$emit('toggle-nav')"></NavButton>
-      <div class="site-name">Chords</div>
+      <nuxt-link to="/" class="site-name">Chords</nuxt-link>
     </div>
   </header>
 </template>
@@ -35,6 +35,7 @@ header {
 
 .site-name {
   font-family: $font-secondary;
+  color: currentColor;
 }
 
 .container {
