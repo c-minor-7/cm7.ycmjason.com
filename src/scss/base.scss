@@ -20,3 +20,27 @@ a, a:hover, a:active, a:focus {
   text-decoration: inherit;
   color: $color-primary;
 }
+
+input, button {
+  font-family: inherit;
+  display: block;
+  color: currentColor;
+  border-radius: 5px;
+}
+
+input:not([type]), input[type='text'], input[type='password'] {
+  border: 1px $color-border solid;
+  padding: 0.5rem;
+
+  &:focus {
+    outline: 0;
+    border-color: $color-secondary;
+  }
+}
+
+input[type='submit'], button {
+  border: 1px $color-border solid;
+  color: $color-background;
+  padding: 0.5rem 1rem;
+  background: $color-primary;
+}
