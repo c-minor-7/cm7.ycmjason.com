@@ -1,13 +1,14 @@
 <template>
-  <nav :class="{ toggled }">
+  <aside class="nav" :class="{ toggled }">
     <ul>
       <nuxt-link
         tag="li"
         v-for="item in items"
+        @click.native="$emit('toggle', false)"
         :to="item.to"
         :key="item.to">{{ item.label }}</nuxt-link>
     </ul>
-  </nav>
+  </aside>
 </template>
 
 <script>
@@ -67,7 +68,7 @@ export default {
 
 $transition-duration: 0.2s;
 
-nav {
+.nav {
   $shadow-spread: 8px;
   position: fixed;
   z-index: 50;

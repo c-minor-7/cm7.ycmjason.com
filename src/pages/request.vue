@@ -15,6 +15,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '@/scss/config.scss';
 
+.notes {
+  color: $color-secondary;
+  margin: 1rem;
+}
 </style>
