@@ -5,7 +5,7 @@
     "jest": true
   },
   "extends": [
-    "@ycm.jason/eslint-config",
-    "plugin:vue/essential"
+    "plugin:vue/essential",
+    "@ycm.jason/eslint-config"
   ]
 }

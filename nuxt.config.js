@@ -2,6 +2,9 @@ const { join } = require('path');
 
 module.exports = {
   srcDir: join(__dirname, 'src'),
+  serverMiddleware: [
+    { path: '/api', handler: join(__dirname, 'src/api/index.js') },
+  ],
   build: {
     extend(config) {
       config.module.rules.push({
