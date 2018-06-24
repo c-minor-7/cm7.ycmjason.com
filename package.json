@@ -8,8 +8,12 @@
     "build": "nuxt build",
     "build:favicon": "faviator -c favicon.config.json -o src/static/favicon.png",
     "start": "nuxt start",
+    "deploy": "git push dokku@aws.ycmjason.com:cm7 master",
     "lint": "eslint . --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "/bin/rm -rf .nuxt",
+    "heroku-prebuild": "npm run clean",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [],
   "author": "Jason Yu <me@ycmjason.com>",
@@ -30,5 +34,9 @@
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3",
     "vue-markdown-loader": "^2.4.1"
+  },
+  "engines": {
+    "node": "8.9.x",
+    "npm": "6.1.x"
   }
 }
