@@ -49,6 +49,7 @@ export default {
 
 .content {
   max-width: $media-breakpoint-md;
+  padding: 0 1rem;
   @media (min-width: $media-breakpoint-md) {
     width: calc(100vw - #{$sidebar-width});
     margin: 0 auto;
