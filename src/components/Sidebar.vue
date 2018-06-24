@@ -111,7 +111,6 @@ li {
   list-style: none;
   display: block;
   padding: 0.5rem 1rem;
-  cursor: pointer;
 
   &:first-child {
     padding-top: 1rem;
@@ -124,6 +123,10 @@ li {
   &.nuxt-link-exact-active {
     color: $color-secondary;
   }
+}
+
+nav li {
+  cursor: pointer;
 }
 
 ul.bottom {
