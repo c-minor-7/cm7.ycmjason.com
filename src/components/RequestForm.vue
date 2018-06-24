@@ -59,11 +59,11 @@ export default {
       }
 
       if (!isEmail(this.fields.email)) {
-        errors.email = 'Not a valid email.';
+        errors.email = 'This is not a valid email.';
       }
 
       if (!isLink(this.fields.songLink)) {
-        errors.songLink = 'Not a valid link.';
+        errors.songLink = 'This is not a valid link.';
       }
 
       if (!this.fields.name) errors.name = 'Name is required.';
