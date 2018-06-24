@@ -87,11 +87,11 @@ $transition-duration: 0.2s;
   box-shadow: 1px 0 $shadow-spread $color-border;
   transform: translateX(-100%) translateX(-$shadow-spread);
   transition: transform $transition-duration;
-  height: 120vh;
+  height: 150vh;
   overflow: auto;
   top: 0;
   padding-top: $header-height;
-  padding-bottom: 20vh;
+  padding-bottom: 50vh;
   width: $sidebar-width;
 
   &.toggled {
