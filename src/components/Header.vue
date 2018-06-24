@@ -2,7 +2,7 @@
   <header>
     <div class="container">
       <SidebarButton class="sidebar-button" @toggle-sidebar="$emit('toggle-sidebar')"></SidebarButton>
-      <nuxt-link to="/" class="site-name">Chords</nuxt-link>
+      <nuxt-link to="/" class="site-name">Cm7</nuxt-link>
     </div>
   </header>
 </template>
