@@ -20,7 +20,7 @@
 
     <textarea
       v-model="fields.content"
-      placeholder="Say &ldquo;hi&rdquo; to Jason!"></textarea>
+      placeholder="Say “hi” to Jason!"></textarea>
     <span class="errorMessage" v-if="errors.content">{{ errors.content }}</span>
 
     <input type="submit" value="Submit">
