@@ -1,0 +1,25 @@
+@import './config.scss';
+@import url('https://fonts.googleapis.com/css?family=Markazi+Text|Spirax');
+
+html {
+  font-size: 20px;
+  font-family: $font-primary;
+  color: $color-foreground;
+  background: $color-background;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-secondary;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
