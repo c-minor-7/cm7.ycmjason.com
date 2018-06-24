@@ -1,13 +1,15 @@
 <template>
-  <aside class="nav" :class="{ toggled }">
-    <ul>
-      <nuxt-link
-        tag="li"
-        v-for="item in items"
-        @click.native="$emit('toggle', false)"
-        :to="item.to"
-        :key="item.to">{{ item.label }}</nuxt-link>
-    </ul>
+  <aside class="sidebar" :class="{ toggled }">
+    <nav>
+      <ul>
+        <nuxt-link
+          tag="li"
+          v-for="item in items"
+          @click.native="$emit('toggle', false)"
+          :to="item.to"
+          :key="item.to">{{ item.label }}</nuxt-link>
+      </ul>
+    </nav>
 
     <ul class="bottom">
       <li>v{{ version }}</li>
@@ -75,7 +77,7 @@ export default {
 
 $transition-duration: 0.2s;
 
-.nav {
+.sidebar {
   display: flex;
   flex-direction: column;
   $shadow-spread: 8px;
@@ -89,7 +91,7 @@ $transition-duration: 0.2s;
   overflow: auto;
   top: 0;
   padding-top: $header-height;
-  width: $nav-width;
+  width: $sidebar-width;
 
   &.toggled {
     transform: unset;

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Header @toggle-nav="navToggle"></Header>
-    <Nav :toggled="navToggled" @toggle="navToggle"></Nav>
+    <Header @toggle-sidebar="sidebarToggle"></Header>
+    <Sidebar :toggled="sidebarToggled" @toggle="sidebarToggle"></Sidebar>
 
     <div class="content-container">
       <div class="content">
@@ -14,7 +14,7 @@
 
 <script>
 import Header from '@/components/Header.vue';
-import Nav from '@/components/Nav.vue';
+import Sidebar from '@/components/Sidebar.vue';
 import Footer from '@/components/Footer.vue';
 
 import { mapState, mapMutations } from 'vuex';
@@ -22,16 +22,16 @@ import { mapState, mapMutations } from 'vuex';
 export default {
   components: {
     Header,
-    Nav,
+    Sidebar,
     Footer,
   },
 
-  computed: mapState('nav', {
-    'navToggled': 'toggled',
+  computed: mapState('sidebar', {
+    'sidebarToggled': 'toggled',
   }),
 
-  methods: mapMutations('nav', {
-    'navToggle': 'toggle',
+  methods: mapMutations('sidebar', {
+    'sidebarToggle': 'toggle',
   }),
 };
 </script>
@@ -42,15 +42,15 @@ export default {
 .content-container {
   margin-top: $header-height + 1rem;
   @media (min-width: $media-breakpoint-md) {
-    transform: translateX($nav-width);
-    width: calc(100vw - #{$nav-width});
+    transform: translateX($sidebar-width);
+    width: calc(100vw - #{$sidebar-width});
   }
 }
 
 .content {
   max-width: $media-breakpoint-md;
   @media (min-width: $media-breakpoint-md) {
-    width: calc(100vw - #{$nav-width});
+    width: calc(100vw - #{$sidebar-width});
     margin: 0 auto;
   }
 }

@@ -1,18 +1,18 @@
 <template>
   <header>
     <div class="container">
-      <NavButton class="nav-button" @toggle-nav="$emit('toggle-nav')"></NavButton>
+      <SidebarButton class="sidebar-button" @toggle-sidebar="$emit('toggle-sidebar')"></SidebarButton>
       <nuxt-link to="/" class="site-name">Chords</nuxt-link>
     </div>
   </header>
 </template>
 
 <script>
-import NavButton from './NavButton.vue';
+import SidebarButton from './SidebarButton.vue';
 
 export default {
   components: {
-    NavButton,
+    SidebarButton,
   },
 };
 </script>
@@ -44,7 +44,7 @@ header {
   padding: 1rem;
 }
 
-.nav-button {
+.sidebar-button {
   margin-right: 1rem;
   @media (min-width: $media-breakpoint-md) {
     display: none;
