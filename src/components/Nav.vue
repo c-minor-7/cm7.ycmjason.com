@@ -8,10 +8,16 @@
         :to="item.to"
         :key="item.to">{{ item.label }}</nuxt-link>
     </ul>
+
+    <ul class="bottom">
+      <li>v{{ version }}</li>
+    </ul>
   </aside>
 </template>
 
 <script>
+import { version } from '@@/package.json';
+
 const getPosFromTouchEvent = e => ({
   x: e.changedTouches[0].clientX,
   y: e.changedTouches[0].clientY,
@@ -36,6 +42,7 @@ export default {
         to: '/request',
       },
     ],
+    version,
   }),
 
   mounted() {
@@ -69,6 +76,8 @@ export default {
 $transition-duration: 0.2s;
 
 .nav {
+  display: flex;
+  flex-direction: column;
   $shadow-spread: 8px;
   position: fixed;
   z-index: 50;
@@ -106,8 +115,16 @@ li {
     padding-top: 1rem;
   }
 
+  &:last-child {
+    padding-bottom: 1rem;
+  }
+
   &.nuxt-link-exact-active {
     color: $color-secondary;
   }
+}
+
+ul.bottom {
+  margin-top: auto;
 }
 </style>
