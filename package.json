@@ -8,7 +8,7 @@
     "build": "nuxt build",
     "build:favicon": "faviator -c favicon.config.json -o src/static/favicon.png",
     "start": "nuxt start",
-    "deploy": "git push dokku@aws.ycmjason.com:cm7 master",
+    "deploy": "git push dokku@aws:cm7 master",
     "lint": "eslint . --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "/bin/rm -rf .nuxt",
