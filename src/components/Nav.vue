@@ -13,6 +13,21 @@ const getPosFromTouchEvent = e => ({
 });
 
 export default {
+  props: {
+    toggled: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
+  data: () => ({
+    items: [
+      {
+        label: 'Requests',
+      },
+    ],
+  }),
+
   mounted() {
     let startPos = {};
     document.addEventListener('touchstart', startEvent => {
@@ -24,26 +39,17 @@ export default {
       const dx = endPos.x - startPos.x;
       const dy = endPos.y - startPos.y;
       if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-        this.toggled = dx > 0 && startPos.x <= 80;
+        this.$emit('toggle', dx > 0 && startPos.x <= 80);
       }
     }, { passive: true });
 
     document.addEventListener('click', e => {
       if (!this.toggled) return;
       if (!this.$el.contains(e.target)) {
-        this.toggled = false;
+        this.$emit('toggle', false);
       }
     }, { passive: true });
   },
-
-  data: () => ({
-    toggled: false,
-    items: [
-      {
-        label: 'Request a song!',
-      },
-    ],
-  }),
 };
 </script>
 
@@ -53,16 +59,18 @@ export default {
 $transition-duration: 0.2s;
 
 nav {
+  $shadow-spread: 8px;
   position: fixed;
   z-index: 50;
   background: $color-background;
-  box-shadow: 1px 0 3px #656565;
-  transform: translateX(-100%) translateX(-5px);
+  box-shadow: 1px 0 $shadow-spread $color-border;
+  transform: translateX(-100%) translateX(-$shadow-spread);
   transition: transform $transition-duration;
   height: 100vh;
   overflow: auto;
   top: 0;
   padding-top: 3rem;
+  min-width: 8rem;
 
   &.toggled {
     transform: unset;
@@ -71,10 +79,12 @@ nav {
 
 ul {
   margin: 0;
-  padding: 1rem;
+  padding: 0;
 }
+
 li {
   list-style: none;
   display: block;
+  padding: 1rem 1rem;
 }
 </style>

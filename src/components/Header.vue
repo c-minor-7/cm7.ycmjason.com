@@ -1,10 +1,21 @@
 <template>
   <header>
     <div class="container">
+      <NavButton class="nav-button" @toggle-nav="$emit('toggle-nav')"></NavButton>
       <div class="site-name">Chords</div>
     </div>
   </header>
 </template>
+
+<script>
+import NavButton from './NavButton.vue';
+
+export default {
+  components: {
+    NavButton,
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 @import '@/scss/config.scss';
@@ -24,5 +35,14 @@ header {
 
 .site-name {
   font-family: $font-secondary;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.nav-button {
+  margin-right: 1rem;
 }
 </style>

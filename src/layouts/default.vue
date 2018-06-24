@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Header></Header>
-    <Nav :toggled="navToggled"></Nav>
+    <Header @toggle-nav="navToggle"></Header>
+    <Nav :toggled="navToggled" @toggle="navToggle"></Nav>
 
     <main class="container">
       <nuxt></nuxt>
@@ -16,6 +16,8 @@ import Header from '@/components/Header.vue';
 import Nav from '@/components/Nav.vue';
 import Footer from '@/components/Footer.vue';
 
+import { mapState, mapMutations } from 'vuex';
+
 export default {
   components: {
     Header,
@@ -23,8 +25,12 @@ export default {
     Footer,
   },
 
-  data: () => ({
-    navToggled: false,
+  computed: mapState('nav', {
+    'navToggled': 'toggled',
+  }),
+
+  methods: mapMutations('nav', {
+    'navToggle': 'toggle',
   }),
 };
 </script>
