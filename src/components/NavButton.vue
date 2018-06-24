@@ -7,16 +7,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import '@/scss/config.scss';
-
-.nav-button {
-  display: block;
-
-  @media (min-width: $media-breakpoint-sm) {
-    display: none;
-  }
-}
-
 .icon {
   display: block;
   width: 1rem;

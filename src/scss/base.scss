@@ -15,11 +15,3 @@ h1, h2, h3, h4, h5, h6 {
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
-.container {
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}

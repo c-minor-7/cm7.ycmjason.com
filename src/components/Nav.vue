@@ -69,10 +69,14 @@ nav {
   height: 100vh;
   overflow: auto;
   top: 0;
-  padding-top: 3rem;
-  min-width: 8rem;
+  padding-top: $header-height;
+  width: $nav-width;
 
   &.toggled {
+    transform: unset;
+  }
+
+  @media (min-width: $media-breakpoint-md) {
     transform: unset;
   }
 }

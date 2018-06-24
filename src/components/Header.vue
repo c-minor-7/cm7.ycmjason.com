@@ -28,7 +28,7 @@ header {
   position: fixed;
   top: 0;
   width: 100vw;
-  height: 3rem;
+  height: $header-height;
   display: flex;
   align-items: center;
 }
@@ -40,9 +40,13 @@ header {
 .container {
   display: flex;
   align-items: center;
+  padding: 1rem;
 }
 
 .nav-button {
   margin-right: 1rem;
+  @media (min-width: $media-breakpoint-md) {
+    display: none;
+  }
 }
 </style>

@@ -3,11 +3,12 @@
     <Header @toggle-nav="navToggle"></Header>
     <Nav :toggled="navToggled" @toggle="navToggle"></Nav>
 
-    <main class="container">
-      <nuxt></nuxt>
-    </main>
-
-    <Footer></Footer>
+    <div class="content-container">
+      <div class="content">
+        <nuxt></nuxt>
+        <Footer></Footer>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -38,9 +39,20 @@ export default {
 <style lang="scss" scoped>
 @import '@/scss/config.scss';
 
-main {
-  padding-top: 3rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.content-container {
+  margin-top: $header-height;
+  @media (min-width: $media-breakpoint-md) {
+    transform: translateX($nav-width);
+    width: calc(100vw - #{$nav-width});
+  }
+}
+
+.content {
+  padding: 1rem;
+  max-width: $media-breakpoint-md;
+  @media (min-width: $media-breakpoint-md) {
+    width: calc(100vw - #{$nav-width});
+    margin: 0 auto;
+  }
 }
 </style>

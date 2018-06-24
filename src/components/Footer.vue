@@ -1,8 +1,6 @@
 <template>
   <footer>
-    <div class="container">
-      Jason Yu &copy; 2018
-    </div>
+    Jason Yu &copy; 2018
   </footer>
 </template>
 
