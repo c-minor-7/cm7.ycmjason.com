@@ -40,7 +40,7 @@ export default {
 @import '@/scss/config.scss';
 
 .content-container {
-  margin-top: $header-height;
+  margin-top: $header-height + 1rem;
   @media (min-width: $media-breakpoint-md) {
     transform: translateX($nav-width);
     width: calc(100vw - #{$nav-width});
@@ -48,7 +48,6 @@ export default {
 }
 
 .content {
-  padding: 1rem;
   max-width: $media-breakpoint-md;
   @media (min-width: $media-breakpoint-md) {
     width: calc(100vw - #{$nav-width});
