@@ -22,7 +22,7 @@ Here is some info about the requester.
   ${keyVal('Name', name)}
   ${keyVal('Email', email)}
   ${keyVal('Song Link', songLink)}
-  ${keyVal('Content', content)}
+  ${keyVal('Content', content.replace(/\n/g, '<br>'))}
 </blockquote>
 
 <p>
