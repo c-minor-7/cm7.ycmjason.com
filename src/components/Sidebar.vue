@@ -1,13 +1,10 @@
 <template>
-  <aside class="sidebar" :class="{ toggled }">
+  <aside class="sidebar" :class="{ toggled }" @click.native="$emit('toggle', false)">
     <nav>
       <ul>
-        <nuxt-link
-          tag="li"
-          v-for="item in items"
-          @click.native="$emit('toggle', false)"
-          :to="item.to"
-          :key="item.to">{{ item.label }}</nuxt-link>
+        <li v-for="item in items" :key="item.to">
+          <nuxt-link :to="item.to">{{ item.label }}</nuxt-link>
+        </li>
       </ul>
     </nav>
 
@@ -111,7 +108,7 @@ ul {
 li {
   list-style: none;
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
 
   &:first-child {
     padding-top: 1rem;
@@ -126,8 +123,10 @@ li {
   }
 }
 
-nav li {
+nav li a {
+  display: block;
   cursor: pointer;
+  padding: 0.5rem 0;
 }
 
 ul.bottom {
