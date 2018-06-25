@@ -3,6 +3,7 @@
     <div class="container">
       <SidebarButton class="sidebar-button" @toggle-sidebar="$emit('toggle-sidebar')"></SidebarButton>
       <nuxt-link to="/" class="site-name">Cm7</nuxt-link>
+      <div class="site-tag">alpha</div>
     </div>
   </header>
 </template>
@@ -50,5 +51,11 @@ header {
   @media (min-width: $media-breakpoint-md) {
     display: none;
   }
+}
+
+.site-tag {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  align-self: flex-end;
 }
 </style>
