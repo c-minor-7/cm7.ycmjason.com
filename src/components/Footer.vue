@@ -1,6 +1,6 @@
 <template>
   <footer>
-    Jason Yu &copy; 2018
+    Made with ❤ Jason Yu &copy; 2018
   </footer>
 </template>
 
