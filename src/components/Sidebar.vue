@@ -1,9 +1,11 @@
 <template>
-  <aside class="sidebar" :class="{ toggled }" @click.native="$emit('toggle', false)">
+  <aside class="sidebar" :class="{ toggled }">
     <nav>
       <ul>
         <li v-for="item in items" :key="item.to">
-          <nuxt-link :to="item.to">{{ item.label }}</nuxt-link>
+          <nuxt-link
+            :to="item.to"
+            @click.native="$emit('toggle', false)">{{ item.label }}</nuxt-link>
         </li>
       </ul>
     </nav>
