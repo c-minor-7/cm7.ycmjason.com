@@ -8,7 +8,7 @@
 
     <input
       v-model="fields.email"
-      type="text"
+      type="email"
       placeholder="Your email">
     <span class="errorMessage" v-if="errors.email">{{ errors.email }}</span>
 

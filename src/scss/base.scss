@@ -30,7 +30,7 @@ input, button, textarea {
   border-radius: 5px;
 }
 
-input:not([type]), input[type='text'], input[type='password'], textarea {
+input:not([type]), input[type='text'], input[type='password'], input[type='email'], textarea {
   border: 1px $color-border solid;
   padding: 0.5rem;
 
