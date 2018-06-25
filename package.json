@@ -19,6 +19,7 @@
   "author": "Jason Yu <me@ycmjason.com>",
   "license": "ISC",
   "dependencies": {
+    "@nuxtjs/google-analytics": "^2.0.2",
     "express": "^4.16.3",
     "mailgun-js": "^0.18.1",
     "node-emoji": "^1.8.1",
