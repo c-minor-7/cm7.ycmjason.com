@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "preversion": "npm run lint && $EDITOR CHANGELOG.md",
+    "version": "git add -A",
     "dev": "nuxt",
     "build": "nuxt build",
     "build:favicon": "faviator -c favicon.config.json -o src/static/favicon.png",
