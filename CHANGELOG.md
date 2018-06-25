@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v0.1.2
+
+### Feature (frontend)
+- Used `type="email"` for email input
+
 ## v0.1.1
 
 ### Fix (frontend)
