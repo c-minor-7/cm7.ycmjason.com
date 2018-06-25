@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v0.1.1
+
+### Fix (frontend)
+- Change `theme-color` to correct brand color
+
 ## v0.1.0
 
 Incomplete alpha version, publish for alpha testers to submit request and play around.
