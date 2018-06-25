@@ -1,1 +1,1 @@
-web: npm start -- -p $PORT -H cm7.ycmjason.com
+web: npm start -- -p $PORT -H 0.0.0.0
