@@ -20,6 +20,7 @@ module.exports = {
     title: 'Cm7 | Chords from Jason',
     meta: [
       { charset: 'utf-8' },
+      { name: 'theme-color', content: '#32303d' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     ],
     script: [
