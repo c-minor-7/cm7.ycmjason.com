@@ -20,7 +20,7 @@
 
     <textarea
       v-model="fields.content"
-      placeholder="Say “hi” to Jason!"></textarea>
+      placeholder="Say “hi” to Jason! (optional)"></textarea>
     <span class="errorMessage" v-if="errors.content">{{ errors.content }}</span>
 
     <input type="submit" value="Submit">
@@ -54,7 +54,8 @@ export default {
       const errors = {};
 
       if (['name', 'email', 'songLink'].every(f => !!this.fields[f]) &&
-          isEmail(this.fields.email)) {
+          isEmail(this.fields.email) &&
+          isLink(this.fields.songLink)) {
         return true;
       }
 

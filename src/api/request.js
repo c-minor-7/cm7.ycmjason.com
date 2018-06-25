@@ -1,3 +1,4 @@
+const NOTIFY_EMAIL = `${process.env.NODE_ENV === 'production'? 'cm7': 'cm7-test'}@ycmjason.com`;
 const mailgun = require('mailgun-js')({
   apiKey: process.env.MAILGUN_API_KEY,
   domain: 'ycmjason.com',
@@ -36,11 +37,14 @@ Chords ${emoji.get('musical_score')}
 
 const createMailData = ({ name, email, songLink, content }) => ({
   from: `${name} <chords-${email.replace('@', '.at.')}@ycmjason.com>`,
-  to: 'Chords <chords@ycmjason.com>',
+  to: `Cm7 <${NOTIFY_EMAIL}>`,
   subject: `${emoji.get('notes')} Chord request`,
   html: createMailHTML({ name, email, songLink, content }),
 });
 
 module.exports = (req, res) => {
-  mailgun.messages().send(createMailData(req.body), (error, body) => res.json(body));
+  mailgun.messages().send(createMailData(req.body), (error, body) => {
+    if (error) res.json(error);
+    res.json(body);
+  });
 };
