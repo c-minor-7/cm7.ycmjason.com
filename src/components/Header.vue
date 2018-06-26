@@ -38,6 +38,7 @@ header {
 .site-name {
   font-family: $font-secondary;
   color: currentColor;
+  font-weight: 300;
 }
 
 .container {
