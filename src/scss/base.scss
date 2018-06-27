@@ -12,6 +12,13 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-secondary;
   font-weight: 300;
+  small {
+    font-family: $font-primary;
+    font-weight: 400;
+    display: block;
+    font-size: 60%;
+    color: lighten($color-primary, 40%);
+  }
 }
 
 *, *::before, *::after {
