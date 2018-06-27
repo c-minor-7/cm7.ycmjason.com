@@ -1,8 +1,10 @@
 <template>
-  <cm7-form :fields="fields"/>
+  <cm7-form :fields="fields" @submit="submit"/>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data: () => ({
     fields: {
@@ -27,6 +29,11 @@ export default {
       },
     },
   }),
+
+  methods: {
+    submit(values) {
+    },
+  },
 };
 </script>
 

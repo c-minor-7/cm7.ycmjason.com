@@ -1,15 +1,4 @@
-import axios from 'axios';
-
-const auth = async (password) => {
-  if (!password) return false;
-
-  const response = await axios.post('/api/admin/login', { password }).catch((error) => {
-    if (!error.response) throw error;
-    return error.response;
-  });
-
-  return response.status === 200;
-};
+import adminService from '@/services/adminService';
 
 export const state = () => ({
   authed: false,
@@ -23,7 +12,8 @@ export const mutations = {
 
 export const actions = {
   async login({ commit, dispatch }, password) {
-    const authed = await auth(password);
+    console.log(adminService);
+    const authed = await adminService.auth(password);
     if (!authed) {
       dispatch('logout');
       return false;

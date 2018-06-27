@@ -1,17 +1,17 @@
 const router = require('express').Router();
-const { sha256 } = require('utility');
+const db = require('./db');
 
-router.post('/login', (req, res) => {
-  const { password } = req.body;
+router.use(require('./middlewares/ensureAdmin'));
 
-  if (password && sha256(password) === process.env.CM7_ADMIN_PASSWORD) {
-    res.status(200);
-    res.end('OK');
-    return;
-  }
+router.post('/auth', (req, res) => {
+  res.status(200);
+  res.end('OK');
+});
 
-  res.status(401);
-  res.end('Unauthorized');
+router.post('/songs', async (req, res, next) => {
+  const { name, artist, youtubeLink, originalKey, cm7Src } = req.body;
+  const song = await db.songs.insertOne({ name, artist, youtubeLink, originalKey, cm7Src }).catch(next);
+  res.json(song);
 });
 
 module.exports = router;

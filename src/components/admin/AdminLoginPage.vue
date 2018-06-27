@@ -13,13 +13,15 @@ export default {
         type: 'password',
         label: 'Password',
         placeholder: 'Your guilty pleasure... hmmmm...',
+        error: '',
       },
     },
   }),
   methods: {
-    login({ password }) {
-      if (!this.$store.dispatch('admin/login', password)) {
-        this.message = 'Incorrect password. Try again?';
+    async login({ password }) {
+      this.fields.password.error = '';
+      if (!await this.$store.dispatch('admin/login', password)) {
+        this.fields.password.error = 'Incorrect password. Try again?';
       }
     },
   },

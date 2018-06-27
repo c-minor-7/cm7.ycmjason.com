@@ -13,7 +13,7 @@
         :type="field.type || 'text'"
         v-bind="field.attrs"/>
 
-      <div class="error" v-if="errors[key]">{{ errors[key] }}</div>
+      <div class="error" v-if="getErrorMessage(key)">{{ getErrorMessage(key) }}</div>
     </div>
 
     <input type="submit" value="Submit">
@@ -79,6 +79,9 @@ export default {
     },
   },
   methods: {
+    getErrorMessage(key) {
+      return this.errors[key] || this.fields[key].error;
+    },
     getPlaceholder(field) {
       const placeholder = field.placeholder || field.label;
       if (field.optional) return placeholder + ' (optional)';
