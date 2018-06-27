@@ -35,6 +35,7 @@ input, button, textarea {
   display: block;
   color: currentColor;
   border-radius: 5px;
+  width: 100%;
 }
 
 input:not([type]), input[type='text'], input[type='password'], input[type='email'], textarea {
@@ -52,5 +53,11 @@ input[type='submit'], button {
   color: $color-background;
   padding: 0.5rem 1rem;
   background: $color-primary;
+  border-color: $color-primary;
   cursor: pointer;
+
+  &.secondary {
+    background: $color-secondary;
+    border-color: $color-secondary;
+  }
 }
