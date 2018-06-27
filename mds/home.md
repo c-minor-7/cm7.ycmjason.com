@@ -1,3 +1,3 @@
 # Cm7
 
-Welcome to Cm7. Chords is a platform for myself to publish arrangements of songs. I would also like to help out if you are struggling with finding the correct chords for a particular song. 
+Welcome to Cm7. Cm7 is a platform to find chords arrangements. Please submit a request if you can't find the song you are looking for.
