@@ -1,101 +1,38 @@
 <template>
-  <form @submit.prevent="submit">
-    <input
-      v-model="fields.name"
-      type="text"
-      placeholder="Your name">
-    <span class="errorMessage" v-if="errors.name">{{ errors.name }}</span>
-
-    <input
-      v-model="fields.email"
-      type="email"
-      placeholder="Your email">
-    <span class="errorMessage" v-if="errors.email">{{ errors.email }}</span>
-
-    <input
-      v-model="fields.songLink"
-      type="text"
-      placeholder="Place a link to the song (youtube, spotify...)">
-    <span class="errorMessage" v-if="errors.songLink">{{ errors.songLink }}</span>
-
-    <textarea
-      v-model="fields.content"
-      placeholder="Say “hi” to Jason! (optional)"></textarea>
-    <span class="errorMessage" v-if="errors.content">{{ errors.content }}</span>
-
-    <input type="submit" value="Submit">
-  </form>
+  <Form :fields="fields" @submit="$emit('submit', $event)"/>
 </template>
 
 <script>
-const isEmail = s => /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/.test(s);
-const isLink = s => {
-  try {
-    new URL(s);
-    return true;
-  } catch (e) {
-    return false;
-  }
-};
+import Form from './Form.vue';
 
 export default {
+  components: { Form },
   data: () => ({
     fields: {
-      name: '',
-      email: '',
-      songLink: '',
-      content: '',
+      name: {
+        label: 'Name',
+        placeholder: 'Your name',
+      },
+      email: {
+        label: 'Email',
+        placeholder: 'Your email',
+        type: 'email',
+      },
+      songLink: {
+        label: 'Song link',
+        placeholder: 'Place a link to the song (youtube, spotify...)',
+        validator: 'isLink',
+      },
+      content: {
+        label: 'Content',
+        placeholder: 'Say “hi” to Jason!',
+        type: 'textarea',
+        optional: true,
+      },
     },
-    errors: {},
   }),
-
-  methods: {
-    checkForm() {
-      const errors = {};
-
-      if (['name', 'email', 'songLink'].every(f => !!this.fields[f]) &&
-          isEmail(this.fields.email) &&
-          isLink(this.fields.songLink)) {
-        return true;
-      }
-
-      if (!isEmail(this.fields.email)) {
-        errors.email = 'This is not a valid email.';
-      }
-
-      if (!isLink(this.fields.songLink)) {
-        errors.songLink = 'This is not a valid link.';
-      }
-
-      if (!this.fields.name) errors.name = 'Name is required.';
-      if (!this.fields.email) errors.email = 'Email is required.';
-      if (!this.fields.songLink) errors.songLink = 'Song link is required.';
-
-      this.errors = errors;
-
-      return false;
-    },
-
-    submit() {
-      if (!this.checkForm()) return;
-      this.$emit('submit', {...this.fields});
-    },
-  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import '@/scss/config.scss';
-
-input, textarea {
-  margin-top: 1rem;
-}
-
-.errorMessage {
-  color: $color-danger;
-}
-
-textarea {
-  height: 5rem;
-}
 </style>
