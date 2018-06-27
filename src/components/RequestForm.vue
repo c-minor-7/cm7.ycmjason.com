@@ -1,12 +1,9 @@
 <template>
-  <Form :fields="fields" @submit="$emit('submit', $event)"/>
+  <cm7-form :fields="fields" @submit="$emit('submit', $event)"/>
 </template>
 
 <script>
-import Form from './Form.vue';
-
 export default {
-  components: { Form },
   data: () => ({
     fields: {
       name: {

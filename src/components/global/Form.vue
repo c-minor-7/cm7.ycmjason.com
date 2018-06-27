@@ -4,12 +4,14 @@
       <textarea
         v-if="field.type === 'textarea'"
         v-model="values[key]"
-        :placeholder="getPlaceholder(field)"/>
+        :placeholder="getPlaceholder(field)"
+        v-bind="field.attrs"/>
       <input
         v-else
         v-model="values[key]"
         :placeholder="getPlaceholder(field)"
-        :type="field.type || 'text'"/>
+        :type="field.type || 'text'"
+        v-bind="field.attrs"/>
 
       <div class="error" v-if="errors[key]">{{ errors[key] }}</div>
     </div>
@@ -92,8 +94,7 @@ export default {
         try {
           const validator = resolveValidator(fields[key]);
           console.log(validator, fields[key].validator);
-          validator(values[key]);
-          return;
+          if (!validator(values[key])) throw new Error('This is not valid.');
         } catch ({ message }) {
           errors[key] = message;
         }
@@ -131,5 +132,6 @@ input, textarea {
 
 textarea {
   height: 5rem;
+  resize: vertical;
 }
 </style>

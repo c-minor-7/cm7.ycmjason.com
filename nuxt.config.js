@@ -34,4 +34,5 @@ module.exports = {
     'normalize.css',
     '@/scss/base.scss',
   ],
+  plugins: ['plugins/global-components.js'],
 };
