@@ -25,6 +25,7 @@
   "dependencies": {
     "@nuxtjs/google-analytics": "^2.0.2",
     "axios": "^0.18.0",
+    "cm7-vue": "^0.1.0",
     "express": "^4.16.3",
     "mailgun-js": "^0.20.0",
     "mongodb": "^3.1.4",
