@@ -1,11 +1,12 @@
 const { join } = require('path');
 
 module.exports = {
-  srcDir: join(__dirname, 'src'),
-  serverMiddleware: [
-    { path: '/api', handler: join(__dirname, 'src/api/index.js') },
-  ],
+  rootDir: __dirname,
+  srcDir: join(__dirname, 'nuxt-src'),
+  buildDir: join(__dirname, 'functions/ssr/nuxt-dist'),
   build: {
+    publicPath: '/',
+    vendor: [],
     extend(config) {
       config.module.rules.push({
         test: /\.md$/,
@@ -23,9 +24,6 @@ module.exports = {
       { name: 'theme-color', content: '#274156' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     ],
-    script: [
-      { src: 'https://www.google.com/recaptcha/api.js' },
-    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'favicon.png' },
     ],
@@ -34,5 +32,5 @@ module.exports = {
     'normalize.css',
     '@/scss/base.scss',
   ],
-  plugins: ['plugins/global-components.js'],
+  plugins: ['@/plugins/global-components.js'],
 };

@@ -1,6 +1,3 @@
-require('dotenv').config();
-
-const MongoClient = require('mongodb').MongoClient;
 const express = require('express');
 const app = express();
 

@@ -32,7 +32,6 @@
 
 <script>
 import RequestForm from '../components/RequestForm.vue';
-import axios from 'axios';
 
 const getFreshData = () => ({
   progress: 'form',

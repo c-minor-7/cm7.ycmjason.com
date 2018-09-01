@@ -1,7 +1,8 @@
+const config = require('firebase-functions').config();
 const NOTIFY_EMAIL = `${process.env.NODE_ENV === 'production'? 'cm7': 'cm7-test'}@ycmjason.com`;
 const mailgun = require('mailgun-js')({
-  apiKey: process.env.MAILGUN_API_KEY,
-  domain: 'ycmjason.com',
+  apiKey: config.mailgun.key,
+  domain: config.mailgun.domain,
 });
 
 const emoji = require('node-emoji');
