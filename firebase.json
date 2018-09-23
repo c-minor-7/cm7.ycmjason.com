@@ -9,12 +9,7 @@
     ]
   },
   "hosting": {
-    "public": "functions/ssr/nuxt-dist/dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "public": "functions/ssr/nuxt-dist/dist/client",
     "rewrites": [
       {
         "source": "/api/**", "function": "api"

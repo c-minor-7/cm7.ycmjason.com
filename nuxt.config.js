@@ -6,11 +6,13 @@ module.exports = {
   buildDir: join(__dirname, 'functions/ssr/nuxt-dist'),
   build: {
     publicPath: '/',
-    vendor: [],
     extend(config) {
       config.module.rules.push({
         test: /\.md$/,
-        loader: 'vue-markdown-loader',
+        use: [
+          join(__dirname, './loaders/addWrap.js'),
+          'markdown-loader',
+        ],
       });
     },
   },
