@@ -1,6 +1,6 @@
 const { join } = require('path');
 
-module.exports = {
+export default {
   rootDir: __dirname,
   srcDir: join(__dirname, 'nuxt-src'),
   buildDir: join(__dirname, 'functions/ssr/nuxt-dist'),
@@ -34,5 +34,7 @@ module.exports = {
     'normalize.css',
     '@/scss/base.scss',
   ],
-  plugins: ['@/plugins/global-components.js'],
+  plugins: [
+    { src: '@/plugins/global-components.js', ssr: true },
+  ],
 };

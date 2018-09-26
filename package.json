@@ -11,6 +11,7 @@
     "deploy": "firebase deploy",
     "postdeploy": "git checkout -",
     "dev": "nuxt",
+    "dev:firebase": "firebase serve",
     "prebuild": "npm run clean",
     "build": "nuxt build",
     "build:favicon": "faviator -c favicon.config.json -o nuxt-src/static/favicon.png",
