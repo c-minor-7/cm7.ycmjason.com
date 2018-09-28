@@ -9,3 +9,4 @@ npm-debug.log*
 .runtimeconfig.json
 nuxt-dist
 .firebase
+public-dist

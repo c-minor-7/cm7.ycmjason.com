@@ -14,9 +14,10 @@
     "dev:firebase": "firebase serve",
     "prebuild": "npm run clean",
     "build": "nuxt build",
+    "postbuild": "node scripts/prepareCDN.js",
     "build:favicon": "faviator -c favicon.config.json -o nuxt-src/static/favicon.png",
     "lint": "eslint . --fix",
-    "clean": "/bin/rm -rf functions/ssr/nuxt-dist"
+    "clean": "/bin/rm -rf functions/ssr/nuxt-dist public-dist"
   },
   "keywords": [],
   "author": "Jason Yu <me@ycmjason.com>",
@@ -32,6 +33,7 @@
     "eslint": "^5.6.0",
     "eslint-plugin-vue": "^4.7.1",
     "faviator": "^1.2.0",
+    "fs-extra": "^7.0.0",
     "markdown-loader": "^4.0.0",
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0"

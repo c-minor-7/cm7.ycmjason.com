@@ -1,8 +1,8 @@
 const { join } = require('path');
 
-export default {
+module.exports = {
   rootDir: __dirname,
-  srcDir: join(__dirname, 'nuxt-src'),
+  srcDir: join(__dirname, 'src/nuxt'),
   buildDir: join(__dirname, 'functions/ssr/nuxt-dist'),
   build: {
     publicPath: '/',
@@ -10,7 +10,7 @@ export default {
       config.module.rules.push({
         test: /\.md$/,
         use: [
-          join(__dirname, './loaders/addWrap.js'),
+          join(__dirname, 'src/loaders/addWrap.js'),
           'markdown-loader',
         ],
       });
