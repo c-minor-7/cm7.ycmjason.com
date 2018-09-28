@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v0.2.0
+### Feature
+- Switched to Firebase
+- Upgraded to Nuxt 2
+
 ## v0.1.2
 
 ### Feature (frontend)
