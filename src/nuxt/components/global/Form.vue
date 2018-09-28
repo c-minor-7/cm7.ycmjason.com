@@ -121,6 +121,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/scss/config.scss';
+
 .field {
   margin-bottom: 1rem;
 }

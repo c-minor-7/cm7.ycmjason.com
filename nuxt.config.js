@@ -1,15 +1,18 @@
 const { join } = require('path');
 
 module.exports = {
-  srcDir: join(__dirname, 'src'),
-  serverMiddleware: [
-    { path: '/api', handler: join(__dirname, 'src/api/index.js') },
-  ],
+  rootDir: __dirname,
+  srcDir: join(__dirname, 'src/nuxt'),
+  buildDir: join(__dirname, 'nuxt-dist'),
   build: {
+    publicPath: '/',
     extend(config) {
       config.module.rules.push({
         test: /\.md$/,
-        loader: 'vue-markdown-loader',
+        use: [
+          join(__dirname, 'src/loaders/addWrap.js'),
+          'markdown-loader',
+        ],
       });
     },
   },
@@ -23,9 +26,6 @@ module.exports = {
       { name: 'theme-color', content: '#274156' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     ],
-    script: [
-      { src: 'https://www.google.com/recaptcha/api.js' },
-    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'favicon.png' },
     ],
@@ -34,5 +34,7 @@ module.exports = {
     'normalize.css',
     '@/scss/base.scss',
   ],
-  plugins: ['plugins/global-components.js'],
+  plugins: [
+    '@/plugins/globals.js',
+  ],
 };

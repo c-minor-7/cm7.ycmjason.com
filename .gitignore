@@ -6,3 +6,7 @@ node_modules
 npm-debug.log*
 .nuxt
 .env
+.runtimeconfig.json
+nuxt-dist
+.firebase
+public-dist
