@@ -1,10 +1,10 @@
+#!/usr/bin/env node
 const { join, basename, relative } = require('path');
 const {
   readdirSync,
   copyFileSync,
   removeSync,
   mkdirSync,
-  existsSync,
 } = require('fs-extra');
 const flatmap = (xs, fn) => xs.map(fn).reduce((acc, ys) => [...acc, ...ys], []);
 const relativeFromCWD = (path) => relative(process.cwd(), path);

@@ -3,7 +3,7 @@ const { join } = require('path');
 module.exports = {
   rootDir: __dirname,
   srcDir: join(__dirname, 'src/nuxt'),
-  buildDir: join(__dirname, 'functions/ssr/nuxt-dist'),
+  buildDir: join(__dirname, 'nuxt-dist'),
   build: {
     publicPath: '/',
     extend(config) {
@@ -33,5 +33,8 @@ module.exports = {
   css: [
     'normalize.css',
     '@/scss/base.scss',
+  ],
+  plugins: [
+    '@/plugins/globals.js',
   ],
 };

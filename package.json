@@ -11,13 +11,13 @@
     "deploy": "firebase deploy",
     "postdeploy": "git checkout -",
     "dev": "nuxt",
-    "dev:firebase": "firebase serve",
+    "serve": "firebase serve",
     "prebuild": "npm run clean",
     "build": "nuxt build",
-    "postbuild": "node scripts/prepareCDN.js",
+    "postbuild": "./scripts/prepareCDN.js && ./scripts/prepareSSR.js",
     "build:favicon": "faviator -c favicon.config.json -o nuxt-src/static/favicon.png",
     "lint": "eslint . --fix",
-    "clean": "/bin/rm -rf functions/ssr/nuxt-dist public-dist"
+    "clean": "/bin/rm -rf functions/ssr/nuxt-dist public-dist nuxt-dist"
   },
   "keywords": [],
   "author": "Jason Yu <me@ycmjason.com>",
