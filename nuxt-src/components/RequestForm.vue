@@ -3,7 +3,10 @@
 </template>
 
 <script>
+import Cm7Form from '@/components/global/Form.vue';
+
 export default {
+  components: { Cm7Form },
   data: () => ({
     fields: {
       name: {

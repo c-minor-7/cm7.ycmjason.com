@@ -34,7 +34,4 @@ export default {
     'normalize.css',
     '@/scss/base.scss',
   ],
-  plugins: [
-    { src: '@/plugins/global-components.js', ssr: true },
-  ],
 };
