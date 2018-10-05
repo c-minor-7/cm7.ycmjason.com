@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.2.1
+### Fix
+- Fixing api function for requests
+
 ## v0.2.0
 ### Feature
 - Switched to Firebase
