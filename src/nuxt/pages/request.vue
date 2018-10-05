@@ -31,7 +31,8 @@
 </template>
 
 <script>
-import RequestForm from '../components/RequestForm.vue';
+import requestService from '@/services/requestService';
+import RequestForm from '@/components/RequestForm.vue';
 
 const getFreshData = () => ({
   progress: 'form',
@@ -48,7 +49,7 @@ export default {
       this.$ga.event('request', 'sending');
       this.progress = 'sending';
 
-      const { data, status } = await axios.post('/api/request', request);
+      const { status, data } = await requestService.create(request);
       if (status !== 200) {
         this.$ga.event('request', 'error', data);
         this.progress = 'error';
@@ -56,7 +57,7 @@ export default {
         return;
       }
 
-      this.$ga.event('request', 'sent');
+      this.$ga.event('request', 'sent', request.songLink);
       this.progress = 'sent';
     },
 
