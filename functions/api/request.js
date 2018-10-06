@@ -2,6 +2,7 @@ const router = require('express-promise-router')();
 const config = require('firebase-functions').config();
 const admin = require('firebase-admin');
 admin.initializeApp();
+const requestsCollection = admin.firestore().collection('requests');
 
 const isProd = process.env.NODE_ENV === 'production' && config.env === 'production';
 
@@ -56,6 +57,7 @@ const createMailData = ({ name, email, songLink, content }) => ({
 router.post('/', async (req, res) => {
   try {
     const body = await mailgun.messages().send(createMailData(req.body));
+    requestsCollection.add(body);
     res.json(body);
   } catch (err) {
     res.status(500);
