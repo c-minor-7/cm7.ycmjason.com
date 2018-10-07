@@ -2,7 +2,12 @@ const router = require('express-promise-router')();
 const config = require('firebase-functions').config();
 const admin = require('firebase-admin');
 admin.initializeApp();
-const requestsCollection = admin.firestore().collection('requests');
+const firestore = admin.firestore();
+firestore.settings({
+  timestampsInSnapshots: true,
+});
+
+const requestsCollection = firestore.collection('requests');
 
 const isProd = process.env.NODE_ENV === 'production' && config.env === 'production';
 
@@ -42,7 +47,7 @@ Wohoo! Do it soon!
 
 <p>
 Love,<br>
-Chords ${emoji.get('musical_score')}
+Cm7 ${emoji.get('musical_score')}
 </p>`;
 };
 
@@ -56,8 +61,13 @@ const createMailData = ({ name, email, songLink, content }) => ({
 
 router.post('/', async (req, res) => {
   try {
+    requestsCollection.add({
+      ...req.body,
+      timestamps: {
+        created: admin.firestore.FieldValue.serverTimestamp(),
+      },
+    });
     const body = await mailgun.messages().send(createMailData(req.body));
-    requestsCollection.add(body);
     res.json(body);
   } catch (err) {
     res.status(500);
